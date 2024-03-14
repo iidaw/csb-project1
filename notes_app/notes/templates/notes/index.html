@@ -1,0 +1,28 @@
+{% if request.user.is_authenticated %}
+<p>Logged in as <b>{{user.username}}</b></p>
+<a href="{% url 'logout' %}">Logout</a>
+{% else %}
+<a href="{% url 'login' %}">Login</a>
+{% endif %}
+
+
+<hr>
+<h1>Notes App</h1>
+<a href="{% url 'add' %}">Add Note</a>
+
+<table>
+    <p></p>
+    <tr>
+        <th><h2>Notes</h2></th>
+    </tr>
+    {% for note in notes %}
+    <tr>
+        <td> - {{note.title}}</td>
+        <td><a href="{% url 'delete' note.id %}" onclick="return confirm('Do you want to delete {{note.title}}?')">Delete</a></td>
+        <td><a href="{% url 'note_detail' note.id %}">View</a></td>
+    </tr>
+    {% empty %}
+    <h3>No notes to display!</h3>
+    {% endfor %}
+
+</table>

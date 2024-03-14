@@ -1,0 +1,6 @@
+<p>Logged in as <b>{{user.username}}</b></p>
+<hr>
+<a href="{% url 'index' %}">Back</a>
+<h2>Note: {{note.title}}</h2>
+<p>Content: {{note.content}}</p>
+<td><a href="{% url 'delete' note.id %}" onclick="return confirm('Do you want to delete {{note.title}}?')">Delete</a></td>

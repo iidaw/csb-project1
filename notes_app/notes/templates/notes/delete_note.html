@@ -1,0 +1,10 @@
+<p>Logged in as <b>{{user.username}}</b></p>
+<hr>
+
+{% for note in notes %}
+    <h2>{{ note.title }}</h2>
+    <p>{{ note.content }}</p>
+    {% if note.user == request.user %}
+        <a href="{% url 'delete' note.id %}">Delete</a>
+    {% endif %}
+{% endfor %}
