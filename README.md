@@ -8,7 +8,10 @@ This project uses OWASP 2021 list.
 This project has been done using Python and Django.
 1. Clone the repo
 2. Start the app by ```python3 manage.py runserver``` (in the directory that has manage.py)
-3. Log in using username ```alice``` and password ```redqueen``` or username ```bob``` and password ```squarepants```
+3. Make the needed migrations with following commands: <br>
+   ```python3 manage.py makemigrations``` <br>
+   ```python3 manage.py migrate```
+5. Log in using username ```alice``` and password ```redqueen``` or username ```bob``` and password ```squarepants```
 
 ## FLAW 1: Broken Access Control
 https://github.com/iidaw/csb-project1/blob/main/notes_app/notes/views.py#L28
