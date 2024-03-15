@@ -16,9 +16,12 @@ from django.utils.html import escape
 # Remove @csrf_exempt
 @csrf_exempt
 def index(request):
-    users = User.objects.exclude(pk=request.user.id)
-    notes = Note.objects.filter(user=request.user)
-    return render(request, 'notes/index.html', {'users': users, 'notes': notes})
+    if request.user.is_authenticated:
+        users = User.objects.exclude(pk=request.user.id)
+        notes = Note.objects.filter(user=request.user)
+        return render(request, 'notes/index.html', {'users': users, 'notes': notes})
+    else:
+        return redirect('login')
         
 
 # FIX: Broken Access Control
