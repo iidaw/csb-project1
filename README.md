@@ -61,6 +61,7 @@ Links to fixes in the code:
 
 ## FLAW 4: Injection (Cross-Site Scripting (XSS)
 https://github.com/iidaw/csb-project1/blob/main/notes_app/notes/views.py#L69
+https://github.com/iidaw/csb-project1/blob/main/notes_app/notes_app/settings.py#L81 (settings.py intentionally disabled escaping)
 
 ### Description
 Injection is a security vulnerability that occurs when untrusted data is inserted into an application and interpreted as code by the interpreter. This allows attackers to inject malicious code, such as SQL queries or JavaScript, into the application, leading to unauthorized access, data manipulation, or other malicious actions. In this project the note adding isn't protected against XSS attacks. 
@@ -70,6 +71,7 @@ This flaw can be fixed by adding validation to the notes so that they aren't int
 
 Links to fixes in the code:
 - Fix in views.py: https://github.com/iidaw/csb-project1/blob/main/notes_app/notes/views.py#L70
+- Fix in settings.py: https://github.com/iidaw/csb-project1/blob/main/notes_app/notes_app/settings.py#L81
 
 
 ## FLAW 5: Security Misconfiguration
